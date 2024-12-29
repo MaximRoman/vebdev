@@ -1,10 +1,13 @@
+* {
+    -webkit-user-drag: none; 
+    box-sizing: border-box;
+}
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    box-sizing: border-box;
 }
 
 header {
@@ -54,15 +57,119 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
     min-height: calc(100vh - 8rem); 
     padding: 2rem;
 }
 
+.index-products-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+}
+
+.slide-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides {
+    display: flex;
+}
+
+.slide {
+    min-width: calc(100% / 4);
+    box-sizing: border-box;
+    padding: 1rem;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    color: #d9534f;
+    margin-top: 0.5rem;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+button.prev {
+    left: 0;
+}
+
+button.next {
+    right: 0;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.index-about-container {
+    width: 80%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+    width: 100%;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: rgba(51,51,51, 0.3);
+    border: 2px solid #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #333;
+}
+
 .page-title-container h1{
-    margin-top: 0;
+    margin: 0;
 }
 
 .products {
+    margin: 2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
     gap: 2rem;
@@ -91,6 +198,62 @@ main {
     margin-top: 0.5rem;
 }
 
+.featured-blog-posts {
+    width: 80%;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.featured-blog-posts h2 {
+    text-align: center;
+    color: #333;
+}
+
+.blog-excerpt {
+    margin-bottom: 2rem;
+}
+
+.blog-excerpt h3 {
+    margin: 0;
+    color: #555;
+}
+
+.blog-excerpt p {
+    margin: 0.5rem 0;
+}
+
+.blog-excerpt a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog-excerpt a:hover {
+    text-decoration: underline;
+}
+
+
+.blog-posts {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.blog-post {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+    margin-top: 0;
+}
+
 footer {
     background-color: #333;
     color: white;
@@ -101,32 +264,21 @@ footer {
 }
 
 .contact-map {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: calc(50% - 1rem) auto;
     gap: 2rem;
-    padding: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.contact-form, .map-container {
-    flex: 1;
-    min-width: 300px;
+    padding: 2rem;
 }
 
 .contact-form {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    padding-right: 4rem;
 }
 
 .contact-form h2, .map-container h2 {
     margin-bottom: 1rem;
-}
-
-.contact-form label {
-    display: block;
-    margin: 0.5rem 0;
 }
 
 .contact-form input, .contact-form textarea {
@@ -135,6 +287,7 @@ footer {
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-family: sans-serif;
 }
 
 .contact-form button {
